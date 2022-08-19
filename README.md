@@ -34,7 +34,6 @@ jupyter notebook Starbucks_Capstone_notebook.ipynb
 The following questions were considered in analysis the business problem:
 
 - Which types of customers are more likely to respond to an offer ? 
-- Are there any differences for different kind of offers ?
 - Is there any incremental impact from the marketing campaign ?
 
 ### Data
