@@ -2,76 +2,77 @@
 
 ## Introduction
 
-This project was done as a requirement for the Udacity Data Scientist
-Nanodegree. The goal of the project is to use the transactional,
-customer and offer data to provide offer recommendations to Starbucks
-customers. The data was obtained by a simulation of the Starbucks
-mobile app in which customers receive and view offers, and pay their
-drinks in the stores.
+This project is to mainly assess the effectiveness of a marketing 
+campaign deployed by Starbucks on certain demographic groups of customers.
 
-## Configuration
+## Directory
 
-The project was implemented using Jupyter Notebooks, Python and
-libraries used for data analysis such as Pandas and Numpy. 
+Starbuck_Campaign
+|- README.md
+|- Starbucks_Capstone_notebook.ipynb
+|- data
+    | - portfolio.json
+    | - profile.json
+    | - transcript.json
+|- .ipynb_checkpoints
+|- Capstone_Project-Report.pdf
 
-## Methodology
+## Tools and Softwares
 
-In this project, we use the techniques used in a regular data science project.
+The project was implemented in Jupyter Notebooks using Python with libraries like 
+Pandas, Numpy and Sklearn.
 
-### 1. Business Understanding
+To access notebook using terminal :
 
-To guide the project, the following questions were considered:
+```
+jupyter notebook Starbucks_Capstone_notebook.ipynb
 
-- What are the main factors that contribute to customers making purchases?
-- Are offers a way to increase customer engagement?
-- What kind of offers are the most popular?
-- What populations are more interested in offers?
-- What offers should we recommend to different customers?
+```
 
-### 2. Prepare Data
+### Business Problem Statements
 
-In the [helper.py](https://github.com/MohanCR97/Udacity-Data_Scientist_Nanodegree/blob/master/Starbucks_CapstoneProject/helper.py)
-file, the `clean_portfolio`, `clean_profile` and `clean_transcript` functions are
-provided. They implement the following functionality:
+The following questions were considered in analysis the business problem:
 
-**Portfolio Dataframe Tasks**
-* Split the channels into several columns
-* Split offer_type into several columns
-* change id column name to offer_id
+- Which types of customers are more likely to respond to an offer ? 
+- Are there any differences for different kind of offers ?
+- Is there any incremental impact from the marketing campaign ?
 
-**Profile Dataframe Tasks**
-* Fix the date.
-* Split gender column into dummy columns
-* Change the column name id to customer_id. 
+### Data
 
-**Transcript Dataframe Tasks**
-
-* Split value in several columns for offers and transactions
-* Split event column into several columns
-* Change column name person to customer_id
+The three input data files portfolio.json, profile.json, transcript.json are 
+stored in the data folders. 
 
 
-### 3. Exploratory Analysis
+### Exploratory Analysis and Data Preprocessing
 
-In this stage, we analyzed the population based on their demographics
-and their spending behavior. We also took into account the
-interactions between the customers and the offers provided.
+Column splitting, missing data operations and features engineering to provide better 
+clarity in business contexts. Further, each offer and transaction are merged with the
+demographic data of the customers. The final dataset shows the interactions between 
+the customers and the offers provided with the net spent and rewards claimed. 
 
 
-### 4. Recommendation Engine
+### Model Fitting
 
-We used a knowledge based recommendation engine in this project. We
-provided one that selects the most popular offers without considering
-demographics, first. This system is a good start for customers that do
-not provide any demographic data in the app.
+Data are trained on four different models (Random Forest Classifier, Gradient Boosting, 
+Light Gradient Boosting, Extreme Gradient Boosting) and selected for the 
+best based on accuracy scores. The model is to be improved via Grid Search.
 
-For the rest of costumers, we introduced filters that help the system
-make recommendations based on the demographic data provided by the
-customers.
 
-We evaluated the recommendation systems by using visualizations from
-the data.
+### Correlation Analysis
 
-### 5. Blog Website
+The data is also used to map the univariate correlation between key demographic features. 
+The fitted model can be used to predict the likely outcome of hit rate based on the 
+recommendation from the correlation to confirm the recommendation.
 
-A blog has been published in this [site]( https://mohancr97.github.io/Starbucks_CapstoneProject/.)
+
+### Analysis and Justification
+
+To test the result of the hit rate, the t-test could be use to compare the difference 
+in sales performance for the target segment between transactions between non-offer 
+receiving  and offer receiving groups.  
+
+
+### 5. Report and Github
+
+A full analysis report is included, Capstone_Project-Report.pdf.  
+The github repository has been stored in ( https://github.com/showall/starbucks_reward_program.git)
